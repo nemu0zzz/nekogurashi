@@ -1,0 +1,155 @@
+// Place all the styles related to the nekos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.header-nav {
+  background-color: #F2F1ED;
+  position: sticky;
+  height: 70px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav {
+  margin-right: 10%;
+}
+
+a {
+  color: #989797;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1D1D1D;
+}
+
+
+
+.first-block {
+  height: 840px;
+  background-color: #F2F1ED;
+  background-image: url(event1.png);
+  background-size:cover;
+  background-size: 75%;
+  background-position: right;
+  background-repeat: no-repeat;
+  font-size: 250%;
+}
+
+.first-block h3 {
+  margin-left: 100px;
+}
+
+
+
+.second-block {
+  height: 400px;
+  background-color: #ffffff;
+  text-align: center;
+
+  font-size: 1.5em;
+  font-size: 110%;
+  padding-top: 130px;
+  line-height: 2.0; 
+  h5 { font-size: 140% }
+}
+
+
+
+
+.new-square {
+  width: 900px; /* 四角形の幅を設定 */
+  height: 600px; /* 四角形の高さを設定 */
+  background-color: #F2F1ED; /* 背景色を設定（ここでは赤色を指定） */
+  position: left;
+  background-image: url(event2.png)
+
+}
+
+.third-block {
+  font-size: 170%;
+  height: 700px;
+  background-color: #ffffff;
+
+}
+
+
+
+
+.new-square2 {
+  width: 900px; /* 四角形の幅を設定 */
+  height: 600px; /* 四角形の高さを設定 */
+  background-color: #F2F1ED; /* 背景色を設定（ここでは赤色を指定） */
+  background-image: url(event3.png);
+}
+
+
+
+.fourth-block {
+  font-size: 170%;
+  height: 1000px;
+  background-color: #ffffff;
+  h5{padding-right: 1000px}
+  h5{padding-up: 100px}
+}
+
+footer{
+  height: 70px;
+  background-color: #1d1d1d;
+}
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Shizuru&display=swap');
+ first-block  {
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Shizuru', cursive;
+ }
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Zen+Kaku+Gothic+Antique:wght@700&display=swap');
+ header {
+  font-family: 'Montserrat', sans-serif;
+font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Zen+Kaku+Gothic+Antique&display=swap');
+  body {font-family: 'Montserrat', sans-serif;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;   
+  }
+  
+
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    height: 50px;
+    background-color: #000;
+    font-size: 15px;
+    color: #fff;
+  }
+ 
+
+.hajimeru {
+  writing-mode: vertical-rl;
+}
+
+.hajimeru2 {
+  writing-mode: vertical-rl;
+}
+
+.third-block{
+  writing-mode: vertical-rl;
+}
+
+.fourth-block{
+  writing-mode: vertical-rl;
+}

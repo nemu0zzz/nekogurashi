@@ -1,0 +1,2 @@
+class Hito < ApplicationRecord
+end

@@ -1,0 +1,201 @@
+<!DOCTYPE html> <!--この文章がHTML文章であることを伝える要素です。-->
+<html lang="ja"><!--言語の指定-->
+    <head><!--ページに表示されない情報(サイトの裏側の設定)-->
+        <meta charset="utf-8">
+
+    </head>
+
+<body>
+
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Compliment Display</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  #home-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px; /* 余白を追加 */
+    white-space: nowrap; /* 文字が折り返されないようにする */
+  }
+  
+  .kotoba {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+  <h1>いつも頑張ってるあなたへ</h1>
+  
+  <a id="generate-button" href="javascript:void(0);" onclick="generateWords()">ほめて</a> <!-- ほめてボタンを追加 -->
+  <div id="home-container">
+    <ul id="homes-list"></ul>
+  </div>
+  
+  <div class="kotoba">
+    <script>
+      const homes = [
+        "アイデアの魔法使い",
+        "ジェット機の速さ",
+        "笑顔の魔法",
+        "虹のかけら",
+        "ハッピー・サンシャイン",
+        "クリエイティブ・ゲニウス",
+        "インスピレーション源",
+        "ブレイン・スターマスター",
+        "ワンダフル・ストーム",
+        "知識のバンク",
+        "スマイル・メーカー",
+        "アメージング・トラベラー",
+        "ワンダーフル・ワンダー",
+        "ビッグハート・コンパス",
+        "マジシャン・オブ・ポジティブ", 
+        "スパークリング・ジーニアス",
+        "ハッピー・マインド",
+        "ビジョン・ボーダーレス",
+        "スパークリング・サニー",
+        "ねこマスター",
+        "マジカル・ひとみ",
+        "ほっこり・ほっぺ",
+        "ふわふわ・スター",
+        "にゃんじゃないけど",
+        "キュートなクローズ",
+        "ふんわり・パワー",
+        "チャーミング・ぴょん",
+        "シャイニング・おなか",
+        "おさんぽ・マジシャン",
+        "キュンキュン・ヒーロー",
+        "にゃんこ・ミステリー",
+        "ふわふわ・クリエイター",
+        "にゃんにゃん・エクスプローラー",
+        "ふんわり・ユニコーン",
+        "にゃんだふる・エネルギー",
+        "キュートな・パワー",
+        "ちゅーる・ワールド",
+        "ねこなで・ヒーロー",
+        "ぽんぽこ・スマイル",
+        "おやつ・マスター",
+        "ほんわか・パートナー",
+        "ぽかぽか・フレンド"
+      ];
+      const homesList = document.getElementById("homes-list");
+      const MAX_HOMES = 15;
+      const DISPLAY_DURATION = 20000; // 言葉の表示時間（ミリ秒）
+      const FADE_OUT_DURATION = 2000; // フェードアウトの時間（ミリ秒）
+      let displayedHomes = 0;
+      let interval;
+      const displayedWords = [];
+  
+      function getRandomHome() {
+        const availableHomes = homes.filter(home => !displayedWords.includes(home));
+        if (availableHomes.length === 0) {
+          clearInterval(interval);
+          return null;
+        }
+        const randomIndex = Math.floor(Math.random() * availableHomes.length);
+        return availableHomes[randomIndex];
+      }
+  
+      function addHome() {
+        if (displayedHomes >= MAX_HOMES) {
+          clearInterval(interval);
+          return;
+        }
+  
+        const newhome = getRandomHome();
+        if (newhome === null) {
+          return;
+        }
+        
+        displayedWords.push(newhome);
+  
+        const listItem = document.createElement("li");
+        const span = document.createElement("span"); // span要素を作成
+        span.textContent = newhome;
+        span.style.backgroundColor = "#FADBD8"; // 背景色を設定
+        listItem.appendChild(span); // span要素をli要素に追加
+        listItem.style.fontSize = "2em"; // テキストの大きさを2倍に設定
+        listItem.style.overflow = "hidden"; // 文字がはみ出る場合は非表示にする
+        listItem.style.textOverflow = "ellipsis"; // 文字がはみ出る場合は省略記号を表示
+        listItem.style.whiteSpace = "nowrap"; // 文字の折り返しを禁止
+        homesList.appendChild(listItem);
+  
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        listItem.style.position = "absolute";
+        listItem.style.left = x + "px";
+        listItem.style.top = y + "px";
+        listItem.style.animation = "fade-in 1s ease";
+        
+        setTimeout(() => {
+          listItem.style.animation = "fade-out 1s ease"; // フェードアウトのアニメーションを設定
+
+        }, DISPLAY_DURATION - FADE_OUT_DURATION);
+        
+        setTimeout(() => {
+          listItem.remove(); // 要素を削除
+          displayedWords.splice(displayedWords.indexOf(newhome), 1); // 配列からも削除
+        }, DISPLAY_DURATION);
+        
+        displayedHomes++;
+      }
+    
+      function generateWords() {
+        displayedWords.length = 0; // 生成済みの文字をクリア
+        homesList.innerHTML = ""; // 表示されている文字をクリア
+        displayedHomes = 0;
+        
+        interval = setInterval(addHome, 1500); // 4秒ごとに新しい言葉を生成
+      }
+    </script>
+    
+  </div>
+</body>
+</html>
+
+
+
+
+
+  <footer>
+<p>Copyright © Nekogurashi All Rights Reserved.</p>
+</footer>
+
+</body>

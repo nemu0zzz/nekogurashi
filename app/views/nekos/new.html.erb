@@ -1,0 +1,65 @@
+<%= form_for(@neko, class: 'form-horizontal', role: 'form') do |f| %>
+    <div class="container-sindan">
+        <div class="row">
+            
+
+        
+            <div class="col-12">
+                <p>1. 頭がすっきりしない</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.radio_button :question, "1", class: "form-check-input" %>よくある</p>
+                </div>
+            <div class="col-6">
+                <p><%= f.radio_button :question,  "2", class: "form-check-input" %>ない</p>
+            </div>
+
+            <div class="col-12">
+                <p>2. いつもねむい</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.radio_button :question,  "1", class: "form-check-input" %>よくある</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.radio_button :question,  "2", class: "form-check-input" %>ない</p>
+            </div>
+
+            <div class="col-12">
+                <p>3. めまいや立ちくらみがする</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.radio_button :question,  "1", class: "form-check-input" %>よくある</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.radio_button :question,  "2", class: "form-check-input" %>ない</p>
+            </div>
+
+            <div class="col-12">
+                <p>4. 夢を見ることがおおい</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.radio_button :question,  "1", class: "form-check-input" %>よくある</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.radio_button :question,  "2", class: "form-check-input" %>ない</p>
+            </div>
+
+            <div class="col-12">
+                <p>5. 気持ちが晴れていない</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.radio_button :question,  "1", class: "form-check-input" %>よくある</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.radio_button :question,  "2", class: "form-check-input" %>ない</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="sindanbotan">
+        <%= f.submit "post" %>
+        <footer>
+        <p>Copyright © GeekSalon All Rights Reserved.</p>
+      </footer>
+    </div>
+<% end %>
